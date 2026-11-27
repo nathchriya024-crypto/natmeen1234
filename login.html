@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>เข้าสู่ระบบ | เที่ยวบ้านเรา</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <p class="site-name">เที่ยวบ้านเรา</p>
+
+    <nav aria-label="เมนูหลัก">
+        <ul>
+            <li><a href="index.html">หน้าแรก</a></li>
+            <li><a href="places.html">ที่เที่ยว</a></li>
+            <li><a href="food.html">อาหาร</a></li>
+            <li><a href="plan.html">วางแผนเที่ยว</a></li>
+            <li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+            <li><a href="login.html">เข้าสู่ระบบ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="login-main">
+    <section class="login-card">
+        <h2>เข้าสู่ระบบ</h2>
+
+        <form id="loginForm" action="index.html" method="get">
+            <label for="username">ชื่อผู้ใช้</label>
+            <input type="text" id="username" name="username" placeholder="กรอกชื่อผู้ใช้" required>
+
+            <label for="password">รหัสผ่าน</label>
+            <div class="password-box">
+                <input type="password" id="password" name="password" placeholder="กรอกรหัสผ่าน" required>
+                <button type="button" class="toggle-password" onclick="togglePassword()">แสดง</button>
+            </div>
+
+            <div class="login-options">
+                <label>
+                    <input type="checkbox" name="remember"> จดจำฉัน
+                </label>
+                <a href="#">ลืมรหัสผ่าน?</a>
+            </div>
+
+            <button type="submit" class="login-button">เข้าสู่ระบบ</button>
+        </form>
+
+        <div class="back-home">
+            <a href="index.html">กลับสู่หน้าหลัก</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>เที่ยวบ้านเรา | ใบงานฝึกปฏิบัติวิชาการสร้างเว็บไซต์ทางธุรกิจ</p>
+</footer>
+
+<script>
+function togglePassword() {
+    const input = document.getElementById("password");
+    const btn = document.querySelector(".toggle-password");
+    if (input.type === "password") {
+        input.type = "text";
+        btn.textContent = "ซ่อน";
+    } else {
+        input.type = "password";
+        btn.textContent = "แสดง";
+    }
+}
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    window.location.href = "index.html";
+});
+</script>
+
+</body>
+</html>

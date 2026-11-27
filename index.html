@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>หน้าแรก | เที่ยวบ้านเรา</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <p class="site-name">เที่ยวบ้านเรา</p>
+
+    <nav aria-label="เมนูหลัก">
+        <ul>
+            <li><a href="index.html">หน้าแรก</a></li>
+            <li><a href="places.html">ที่เที่ยว</a></li>
+            <li><a href="food.html">อาหาร</a></li>
+            <li><a href="plan.html">วางแผนเที่ยว</a></li>
+            <li><a href="travel.html">ข้อมูลการเดินทาง</a></li>
+            <li><a href="login.html">เข้าสู่ระบบ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1>เที่ยวบ้านเราในหนึ่งวัน</h1>
+    <p class="subtitle">สถานที่ท่องเที่ยวจังหวัดประจวบคีรีขันธ์</p>
+
+    <section class="card">
+        <div class="slider">
+            <img id="slide-img" src="images/aomanow.jpg" alt="สถานที่ท่องเที่ยวประจวบคีรีขันธ์">
+        </div>
+
+        <div class="slider-dots" id="slider-dots">
+            <button type="button" class="dot active" onclick="showSlide(0)" aria-label="รูปที่ 1"></button>
+            <button type="button" class="dot" onclick="showSlide(1)" aria-label="รูปที่ 2"></button>
+            <button type="button" class="dot" onclick="showSlide(2)" aria-label="รูปที่ 3"></button>
+            <button type="button" class="dot" onclick="showSlide(3)" aria-label="รูปที่ 4"></button>
+            <button type="button" class="dot" onclick="showSlide(4)" aria-label="รูปที่ 5"></button>
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>เริ่มจากจุดที่คุณสนใจ</h2>
+        <p>เลือกหมวดที่อยากไปต่อได้จากด้านบน หรือสำรวจแหล่งท่องเที่ยวประจวบคีรีขันธ์ก่อน</p>
+        <a class="button" href="places.html">ดูแหล่งท่องเที่ยว</a>
+    </section>
+</main>
+
+<footer>
+    <p>น.ส.ณัฐฉรียา เกิดลาภ 69319100005| ใบงานฝึกปฏิบัติวิชาการสร้างเว็บไซต์ทางธุรกิจ</p>
+</footer>
+
+<script>
+const slides = [
+    "images/aomanow.jpg",
+    "images/Kaow.jpg",
+    "images/KLM.jpg",
+    "images/lukmuang.jpg",
+    "images/sapanpla.jpg"
+];
+
+let currentIndex = 0;
+
+function showSlide(index) {
+    currentIndex = (index + slides.length) % slides.length;
+    document.getElementById("slide-img").src = slides[currentIndex];
+
+    const dots = document.querySelectorAll("#slider-dots .dot");
+    dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+    });
+}
+
+setInterval(() => {
+    showSlide(currentIndex + 1);
+}, 3500);
+</script>
+
+</body>
+</html>
